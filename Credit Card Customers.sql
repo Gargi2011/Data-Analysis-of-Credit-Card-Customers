@@ -13,6 +13,7 @@ WHERE Attrition_Flag='Existing Customer';
 SELECT COUNT(*) FROM bankchurners
 WHERE Attrition_Flag='Attrited Customer';
 
+#Distrubution of Customers according to their age
 SELECT CASE 
 	WHEN Customer_Age<20 THEN '0-20'
 	WHEN Customer_Age BETWEEN 20 AND 30 THEN '20-30'
@@ -27,10 +28,13 @@ FROM BankChurners WHERE Attrition_Flag='Attrited Customer'
 GROUP BY Age_Range
 ORDER BY Age_Range;
 
+#Count of Male and Female Existing Customers
 SELECT SUM(IF(Gender='M',1,Null)) as Male_Existing_Customers,
 SUM(IF(Gender='F',1,Null)) as Female_Existing_Customers
 FROM bankchurners WHERE Attrition_Flag='Existing Customer';
 
+
+#Count of Male and Female Attrited Customers
 SELECT SUM(IF(Gender='M',1,Null)) as Male_Existing_Customers,
 SUM(IF(Gender='F',1,Null)) as Female_Existing_Customers
 FROM bankchurners WHERE Attrition_Flag='Attrited Customer';
